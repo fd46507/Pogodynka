@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+weather_in_city:
+  path: /{country}/{city}
+  controller: App\Controller\WeatherController:cityAction
