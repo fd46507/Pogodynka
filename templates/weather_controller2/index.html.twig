@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Weather index{% endblock %}
+
+{% block body %}
+    <h1>Weather index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cityname</th>
+                <th>Type</th>
+                <th>Temperature</th>
+                <th>Wind</th>
+                <th>Humidity</th>
+                <th>Precipitation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for weather in weather %}
+            <tr>
+                <td>{{ weather.id }}</td>
+                <td>{{ weather.cityname }}</td>
+                <td>{{ weather.type }}</td>
+                <td>{{ weather.temperature }}</td>
+                <td>{{ weather.wind }}</td>
+                <td>{{ weather.humidity }}</td>
+                <td>{{ weather.precipitation }}</td>
+                <td>
+                    <a href="{{ path('app_weather_controller2_show', {'id': weather.id}) }}">show</a>
+                    <a href="{{ path('app_weather_controller2_edit', {'id': weather.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_weather_controller2_new') }}">Create new</a> <br>
+    <a href="{{ path('app_city_index') }}">Go to City list</a>
+{% endblock %}

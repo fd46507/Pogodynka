@@ -1,0 +1,26 @@
+App\Entity\Weather:
+  properties:
+    temperature:
+      - Range:
+          min: -100
+          max: 200
+      - NotBlank: ~
+    precipitation:
+      - Range:
+          min: 0
+          max: 100
+      - NotBlank: ~
+    wind:
+      - Range:
+          min: 0
+          max: 500
+      - NotBlank: ~
+    humidity:
+      - Range:
+          min: 0
+          max: 100
+      - NotBlank: ~
+    city:
+      - NotBlank: ~
+    type:
+      - NotBlank: ~
