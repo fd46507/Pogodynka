@@ -4,23 +4,29 @@ App\Entity\Weather:
       - Range:
           min: -100
           max: 200
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     precipitation:
       - Range:
           min: 0
           max: 100
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     wind:
       - Range:
           min: 0
           max: 500
-      - NotBlank: ~
+      - NotBlank: 
+          groups: ['new', 'edit']
     humidity:
       - Range:
           min: 0
           max: 100
-      - NotBlank: ~
+      - NotBlank: 
+          groups: ['new', 'edit']
     city:
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     type:
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']

@@ -81,6 +81,11 @@ class Weather
         return $this->temperature;
     }
 
+    public function getTemperatureFarenheit(): ?int
+    {
+        return $this->temperature * 1.8 + 32;
+    }
+
     public function setTemperature(int $temperature): self
     {
         $this->temperature = $temperature;

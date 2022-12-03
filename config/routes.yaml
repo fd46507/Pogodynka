@@ -5,3 +5,7 @@
 weather_in_city:
   path: /{country}/{city}
   controller: App\Controller\WeatherController:cityAction
+
+app_logout:
+  path: /logout
+  methods: GET

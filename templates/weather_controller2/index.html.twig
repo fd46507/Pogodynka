@@ -29,8 +29,12 @@
                 <td>{{ weather.humidity }}</td>
                 <td>{{ weather.precipitation }}</td>
                 <td>
-                    <a href="{{ path('app_weather_controller2_show', {'id': weather.id}) }}">show</a>
-                    <a href="{{ path('app_weather_controller2_edit', {'id': weather.id}) }}">edit</a>
+                    {% if is_granted('ROLE_WEATHER_SHOW') %}
+                        <a href="{{ path('app_weather_controller2_show', {'id': weather.id}) }}">show</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_WEATHER_EDIT') %}
+                        <a href="{{ path('app_weather_controller2_edit', {'id': weather.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -41,6 +45,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_weather_controller2_new') }}">Create new</a> <br>
-    <a href="{{ path('app_city_index') }}">Go to City list</a>
+    {% if is_granted('ROLE_WEATHER_NEW') %}
+        <a href="{{ path('app_weather_controller2_new') }}">Create new</a> <br>
+    {% endif %}
+    {% if is_granted('ROLE_CITY_INDEX') %}
+        <a href="{{ path('app_city_index') }}">Go to City list</a>
+    {% endif %}
 {% endblock %}

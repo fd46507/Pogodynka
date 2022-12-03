@@ -9,10 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/city')]
+
 class CityController extends AbstractController
 {
+    #[IsGranted('ROLE_CITY_INDEX')]
     #[Route('/', name: 'app_city_index', methods: ['GET'])]
     public function index(CityRepository $cityRepository): Response
     {
@@ -21,6 +24,7 @@ class CityController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_CITY_NEW')]
     #[Route('/new', name: 'app_city_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CityRepository $cityRepository): Response
     {
@@ -40,6 +44,7 @@ class CityController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_CITY_SHOW')]
     #[Route('/{id}', name: 'app_city_show', methods: ['GET'])]
     public function show(City $city): Response
     {
@@ -48,6 +53,7 @@ class CityController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_CITY_EDIT')]
     #[Route('/{id}/edit', name: 'app_city_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, City $city, CityRepository $cityRepository): Response
     {
@@ -66,6 +72,7 @@ class CityController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_CITY_DELETE')]
     #[Route('/{id}', name: 'app_city_delete', methods: ['POST'])]
     public function delete(Request $request, City $city, CityRepository $cityRepository): Response
     {

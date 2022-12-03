@@ -3,18 +3,22 @@ App\Entity\City:
     name:
       - Length:
           max: 255
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     country:
       - Length:
           max: 2
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     latitude:
       - Range:
           min: -90
           max: 90
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
     longitude:
       - Range:
           min: -180
           max: 180
-      - NotBlank: ~
+      - NotBlank:
+          groups: ['new', 'edit']
